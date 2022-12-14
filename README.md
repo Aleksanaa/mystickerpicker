@@ -8,7 +8,7 @@
 
 这个picker只支持Element (Web, Electron, Android, iOS) 客户端以及基于它的客户端。
 
-在你的Element (Web或) 的任意聊天窗口输入`/devtools`并发送，会打开一个Developer Tools窗口，在其中选择Explore account data，在其中找到m.widgets，在"content"中添加如下内容：
+在你的Element (Web或桌面端) 的任意聊天窗口输入`/devtools`并发送，会打开一个Developer Tools窗口，在其中选择Explore account data，在其中找到m.widgets，在"content"中添加如下内容：
 
 ```
 "stickerpicker": {
@@ -47,6 +47,8 @@
   }
 }
 ```
+
+同一个账户应该只需要设置一次。
 
 ## 我还想加别的！
 
