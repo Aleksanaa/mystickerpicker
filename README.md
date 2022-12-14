@@ -1,41 +1,53 @@
-# Maunium sticker picker
-A fast and simple Matrix sticker picker widget. Tested on Element Web, Android & iOS.
+# Aleksana自用Matrix贴纸包
 
-## Discussion
-Matrix room: [`#stickerpicker:maunium.net`](https://matrix.to/#/#stickerpicker:maunium.net)
+## 预览
 
-## Instructions
-For setup and usage instructions, please visit the [wiki](https://github.com/maunium/stickerpicker/wiki):
+可以在[这里](https://aleksanaa.github.io/mystickerpicker/web/)
 
-* [Creating packs](https://github.com/maunium/stickerpicker/wiki/Creating-packs)
-* [Enabling the widget](https://github.com/maunium/stickerpicker/wiki/Enabling-the-widget)
-* [Hosting on GitHub pages](https://github.com/maunium/stickerpicker/wiki/Hosting-on-GitHub-pages)
+## 我也想用！
 
-If you prefer video tutorials, [Brodie Robertson](https://www.youtube.com/c/BrodieRobertson) has made a great video on setting up the picker and creating some packs: https://youtu.be/Yz3H6KJTEI0.
+这个picker只支持Element (Web, Electron, Android, iOS) 客户端以及基于它的客户端。
 
-## Comparison with other sticker pickers
+在你的Element (Web或) 的任意聊天窗口输入`/devtools`并发送，会打开一个Developer Tools窗口，在其中选择Explore account data，在其中找到m.widgets，在"content"中添加如下内容：
 
-* Scalar is the default integration manager in Element, which can't be self-hosted and only supports predefined sticker packs.
-* [Dimension](https://github.com/turt2live/matrix-dimension) is an alternate integration manager. It can be self-hosted, but it's more difficult than Maunium sticker picker.
-* Maunium sticker picker is just a sticker picker rather than a full integration manager. It's much simpler than integration managers, but currently has to be set up manually per-user.
+```
+"stickerpicker": {
+    "content": {
+        "type": "m.stickerpicker",
+        "url": "https://aleksanaa.github.io/mystickerpicker/web/?theme=$theme",
+        "name": "Stickerpicker",
+        "data": {}
+    },
+    "sender": "@you:matrix.server.name",
+    "state_key": "stickerpicker",
+    "type": "m.widget",
+    "id": "stickerpicker"
+}
+```
+其中sender可以保持原状，不影响使用。
 
-| Feature                         | Scalar | Dimension | Maunium sticker picker |
-|---------------------------------|--------|-----------|------------------------|
-| Free software                   | ❌     | ✔️        | ✔️                     |
-| Custom sticker packs            | ❌     | ✔️        | ✔️                     |
-| Telegram import                 | ❌     | ✔️        | ✔️                     |
-| Works on Element mobiles        | ✔️     | ❌        | ✔️                     |
-| Easy multi-user setup           | ✔️     | ✔️        | ❌<sup>[#7][#7]</sup>  |
-| Frequently used stickers at top | ❌     | ❌        | ✔️                     |
+如果没有找到m.widgets，就直接选择右下角Send custom account data event，event type选择m.widgets，并填入：
 
-[#7]: https://github.com/maunium/stickerpicker/issues/7
+```
+{
+  "type": "m.widgets",
+  "content": {
+    "stickerpicker": {
+      "content": {
+        "type": "m.stickerpicker",
+        "url": "https://aleksanaa.github.io/mystickerpicker/web/?theme=$theme",
+        "name": "Stickerpicker",
+        "data": {}
+      },
+      "sender": "@you:matrix.server.name",
+      "state_key": "stickerpicker",
+      "type": "m.widget",
+      "id": "stickerpicker"
+    }
+  }
+}
+```
 
-## Preview
-### Element Web
-![Element Web](preview-element-web.png)
+## 我还想加别的！
 
-### Element Android
-![Element Android](preview-element-android.png)
-
-### Element iOS (dark theme)
-![Element iOS](preview-element-ios.png)
+那你自己搭建[原版](https://github.com/maunium/stickerpicker)吧。
