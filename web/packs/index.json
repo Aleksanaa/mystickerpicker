@@ -1,6 +1,15 @@
 {
   "packs": [
-    "MeowPusheen.json"
+    "MeowPusheen.json",
+    "MenciPusheen.json",
+    "Pusheen_3.json",
+    "PusheenJJ.json",
+    "Pusheen_chunyi_by_favorite_stickers_bot.json",
+    "akineko_by_favorite_stickers_bot.json",
+    "AmashiroNatsukiEars_NoWord.json",
+    "jia0_hd.json",
+    "Nacho_dayo_twitch_emoji_LVfE7QWEhvC8rUGj.json",
+    "NonexistentSummer.json"
   ],
   "homeserver_url": "https://mozilla.modular.im"
 }
